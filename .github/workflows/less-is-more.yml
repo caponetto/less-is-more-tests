@@ -37,7 +37,26 @@ jobs:
       - name: "Build :: prod and pack"
         run: yarn run prod
 
-      - name: Less is more
+      - name: Less is more - Should pass
+        if: matrix.os == 'ubuntu-latest'
+        uses: caponetto/less-is-more@v0.0.5
+        with:
+          released_artifact_name: test_release_*
+          artifact_path: "**/test_artifact_*.vsix"
+          max_increase_percentage: 70
+          github_token: ${{ secrets.BASIC_TOKEN }}
+
+      - name: Less is more - Should pass
+        if: matrix.os == 'macos-latest'
+        uses: caponetto/less-is-more@v0.0.5
+        with:
+          released_artifact_name: test_release_*
+          artifact_path: "**/test_artifact_*.vsix"
+          max_increase_percentage: 59
+          github_token: ${{ secrets.BASIC_TOKEN }}
+          
+      - name: Less is more - Should fail
+        if: matrix.os == 'windows-latest'
         uses: caponetto/less-is-more@v0.0.5
         with:
           released_artifact_name: test_release_*
