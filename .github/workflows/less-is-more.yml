@@ -1,4 +1,4 @@
-name: Artifact size validation
+name: Tests
 
 on:
   pull_request:
@@ -53,6 +53,15 @@ jobs:
           released_artifact_name: test_release_*
           artifact_path: "**/test_artifact_*.vsix"
           max_increase_percentage: 59
+          github_token: ${{ secrets.BASIC_TOKEN }}
+
+      - name: Less is more - Should fail
+        if: matrix.os == 'ubuntu-latest'
+        uses: caponetto/less-is-more@v0.0.5
+        with:
+          released_artifact_name: test_release_*
+          artifact_path: "**/test_artifact_*.vsix"
+          max_increase_percentage: 58
           github_token: ${{ secrets.BASIC_TOKEN }}
           
       - name: Less is more - Should fail
