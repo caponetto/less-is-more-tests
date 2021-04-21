@@ -39,7 +39,7 @@ jobs:
 
       - name: Less is more - Should pass
         if: matrix.os == 'ubuntu-latest'
-        uses: caponetto/less-is-more@v0.0.6
+        uses: caponetto/less-is-more@v0.0.7
         with:
           released_artifact_name: test_release_*
           artifact_path: "**/test_artifact_*.vsix"
@@ -48,7 +48,7 @@ jobs:
 
       - name: Less is more - Should pass
         if: matrix.os == 'macos-latest'
-        uses: caponetto/less-is-more@v0.0.6
+        uses: caponetto/less-is-more@v0.0.7
         with:
           released_artifact_name: test_release_*
           artifact_path: "**/test_artifact_*.vsix"
@@ -57,7 +57,7 @@ jobs:
 
       - name: Less is more - Should fail
         if: matrix.os == 'ubuntu-latest'
-        uses: caponetto/less-is-more@v0.0.6
+        uses: caponetto/less-is-more@v0.0.7
         with:
           released_artifact_name: test_release_*
           artifact_path: "**/test_artifact_*.vsix"
@@ -66,7 +66,7 @@ jobs:
           
       - name: Less is more - Should pass
         if: matrix.os == 'windows-latest'
-        uses: caponetto/less-is-more@v0.0.6
+        uses: caponetto/less-is-more@v0.0.7
         with:
           released_artifact_name: test_release_*
           artifact_path: "**/test_artifact_*.vsix"
